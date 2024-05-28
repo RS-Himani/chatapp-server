@@ -31,7 +31,7 @@ dotenv.config({
 });
 
 const mongoURI = process.env.MONGO_URI;
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const envMode = process.env.NODE_ENV.trim() || "PRODUCTION";
 const adminSecretKey = process.env.ADMIN_SECRET_KEY || "demoAdminSecretKey";
 const userSocketIDs = new Map();
@@ -65,6 +65,7 @@ app.use("/api/v1/admin", adminRoute);
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
+
 
 io.use((socket, next) => {
   cookieParser()(
